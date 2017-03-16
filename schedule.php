@@ -1,0 +1,375 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Team Lex Volleyball - LGBT Volleyball in Lexington, Kentucky</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+		<link rel="stylesheet" href="includes/css/teamlex.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+	
+
+</head> 
+<body> 
+
+<div data-role="page" style="overflow-y:hidden">
+
+<?php
+	require ('db_login.php');
+
+					  $siteSeasonQuery = "SELECT the_content as ID FROM other_content WHERE other_content.name='siteSeason' LIMIT 1";
+					  $siteSeasonQueryResult = mysql_query($siteSeasonQuery);
+					    
+					  while ($row = mysql_fetch_array($siteSeasonQueryResult, MYSQL_ASSOC)) { 
+					  	$thisSeason = $row[ID];
+						}
+					
+    $datesQuery = "SELECT dateName from weeks where seasonNum = $thisSeason order by weekNum Asc";
+	$datesQueryResult = mysql_query($datesQuery);
+	
+	$freeWeekQuery = "Select Name, FreeWeek from seasons where ID = $thisSeason";
+	$freeWeekQueryResult = mysql_query($freeWeekQuery);
+	$freeWeekRow = mysql_fetch_array($freeWeekQueryResult, MYSQL_ASSOC);
+	
+	$thisSeasonName = $freeWeekRow["Name"];
+	$freeWeek = $freeWeekRow["FreeWeek"];
+	
+	
+	$dates = array($freeWeek);
+	
+	while ($row = mysql_fetch_array($datesQueryResult, MYSQL_ASSOC)) { 
+					  	array_push($dates, $row[dateName]);
+						}
+						
+	$weekNotes = array("","","","","","","","","","");
+
+?>
+
+	    <div data-role="panel" id="right-panel" data-display="push" data-position="right" data-theme="j" style="background: #676767;">
+        <ul data-role="listview" data-theme="j" data-icon="false">
+            <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+            <li data-role="list-divider">Schedules</li>
+			<li><a id=allbtn href="#">Show All</a></li>
+			<li><a id=freeweekbtn href=\"#\">Free Week - <?php print $dates[0];?></a></li>
+			<?php for($j=1; $j<count($dates); $j++){
+			  print "<li><a id=week".$j."btn href=\"#\">Week ".$j." - ".$dates[$j]."</a></li>";
+			}
+			?>
+
+			
+        </ul>
+    </div><!-- /panel -->
+	
+	
+<script>
+
+$('#allbtn').click(function() {
+		$("#freeweeksched").show();
+		<?php
+			for($j=1; $j<count($dates); $j++){
+			print "$(\"#week".$j."sched\").show();";
+			}
+		?>
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#freeweekbtn').click(function() {
+		$("#freeweeksched").show();
+		<?php
+			for($j=1; $j<count($dates); $j++){
+			print "$(\"#week".$j."sched\").hide();";
+			}
+		?>
+		$( "#right-panel" ).panel( "close" );
+});
+
+<?php
+for($j=1; $j<count($dates); $j++){
+	print  "$('#week".$j."btn').click(function() {";
+	print "$(\"#freeweeksched\").hide();";
+	for ($i=1; $i<count($dates); $i++){
+		if ($i == $j){
+		  print "$(\"#week".$i."sched\").show();";
+		}
+		else {
+		  print "$(\"#week".$i."sched\").hide();";
+		}
+	}
+    print "$(\"#right-panel\" ).panel(\"close\" );});";
+}		
+?>
+</script>
+
+
+	<div data-role="header" data-theme="j">
+		<a href="index.php" data-icon="home" data-iconpos="notext">Home</a>
+		<h1></h1>
+		<a href="#right-panel" data-icon="bars" data-iconpos="notext">Weekly Overview</a>
+	</div><!-- /header -->
+
+	
+
+	<div data-role="content" data-theme="i">	
+	
+			
+			
+			<div class="ui-body ui-body-a">
+				<h1><?php echo $thisSeasonName; ?> Schedule</h1>
+				<p>Matches will be two sets to 21 with a cap at 23 unless otherwise noted, using the most current 
+<a href="https://www.volleyballreftraining.com/rules_interpretations_indoor.php" target="_blank">USAV domestic indoor rules</a></p>
+<p>The first week of Team Lex is dedicated to <i>Skill Assessments</i>.  <i>Skill Assessments</i> are a collection of passing, setting, hitting, and serving drills to evaluate player abilities for team placement.  League organizers will help lead the drills and evaluate players in order to form evenly matched teams.</p>
+				<p>Interested in playing?  Join our <a href="http://www.teamlexvb.com/contact.html">mailing list</a> and <a href="https://www.facebook.com/groups/492904774102678/" target=_blank>Facebook group</a>.
+			</div>
+
+
+
+		
+	<DIV NAME=freeweek ID=freeweeksched style="font-size:14px">		
+			<div data-role="header" data-theme="j"  style="background-image:none;">
+				<h1><?php print $dates[0]?></h1>
+			</div>
+			<p><i>Skill Assessments</i> are a collection of passing, setting, hitting, and serving drills to evaluate player abilities for team placement.  Participation is encouraged.  To be eligible for competitive play you must have completed an evaluation this or the previous Team Lex season.  League organizers will lead the drills and evaluate players in order to help form evenly matched teams.</p>
+			
+			<div style="overflow:auto"><center>
+			<table width=100% style="max-width:800px;text-align:center;border-collapse:collapse">
+    <thead>
+        <tr class="th-groups" bgcolor="#dedede">
+            <th style="width:110px"></th>
+            <th>Courts 1 & 2</th>
+        </tr>
+		</thead>
+		<tbody>
+		<tr>
+			<th>5:15pm</th>
+			<td valign=middle>Introductions</td>
+        </tr>
+		<tr>
+			<th>5:30pm</th>
+			<td valign=middle>Skills Assessment Group 1 - New / Recreational Players</td>
+        </tr>
+		<tr>
+			<th>6:20pm</th>
+			<td valign=middle>Skills Assessment Group 2 - Competitive Players</td>
+        </tr>
+		<tr>
+			<th>7:10pm</th>
+			<td valign=middle>Finishing Remarks</td>
+        </tr>
+		</tbody>
+		</table>
+		</center></div>
+		
+
+</div>
+
+<?php
+	$weeksQuery = "SELECT * FROM  weeks where seasonNum = $thisSeason order by weekNum Asc";
+	$weeksQueryResult = mysql_query($weeksQuery);
+							
+					if (!weeksQueryResult) {
+					die ("Could not query the database:". mysql_error());
+					}
+					
+					if (mysql_num_rows($weeksQueryResult) == 0) {
+					  print "No matches have been scheduled yet for the selected season.<br>";
+					}
+					
+					else { 
+						$i = 1;
+						
+						while ($rowMatch = mysql_fetch_array($weeksQueryResult, MYSQL_ASSOC)) 
+						{
+						?>
+
+						<DIV NAME=week<?php print $i;?> ID=week<?php print $i;?>sched  style="font-size:14px">
+
+									<div data-role="header" data-theme="j" style="background-image:none;">
+										<h1><?php print $rowMatch[dateName];?></h1>
+									</div>
+									<?php if ($rowMatch[weekNotes] <> ""){ ?>	
+									<p><?php print $rowMatch[weekNotes];?></p>
+									<?php } ?>
+									
+									<?php if ($weekNotes[$i] <> ""){ ?>	
+									<p><?php print $weekNotes[$i];?></p>
+									<?php } ?>
+							
+							<?php if ($rowMatch[Extra1] <> ""){ ?>	
+							   <div style="overflow:auto"><center>						
+									<table width=100% style="max-width:800px;text-align:center;border-collapse:collapse">
+								<thead>
+								<tr class="th-groups" bgcolor="#dedede">
+									<th></th>
+									<th>Court 1</th>
+									<th>Court 2</th>
+								</tr>
+								</thead>
+								<tbody>
+											<tr>
+									<th><?php print intval(substr($rowMatch[ExtraStartTime],0,2))-12 . ":" . substr($rowMatch[ExtraStartTime],3,2) . "PM"; ?></th>
+									<td valign=middle><?php print $rowMatch[Extra1];?></td>
+									<td valign=middle><?php print $rowMatch[Extra2];?></td>
+								</tr>
+								</tbody>
+								</table>
+								</center></div>
+							<?php } ?>	
+									<div style="overflow:auto"><center>
+									<table width=100% style="max-width:800px;text-align:center;border-collapse:collapse">
+							<thead>
+								<tr class="th-groups" bgcolor="#dedede">
+									<th></th>
+									<th colspan="3">Court 1</th>
+									<th colspan="3" style="border-left:1px solid black">Court 2</th>
+								</tr>
+								<tr>
+									<th></th>
+									<th>Home</th>
+									<th>Away</th>
+									<th>Ref</th>
+									<th style="border-left:1px solid black">Home</th>
+									<th>Away</th>
+									<th>Ref</th>
+								</tr>
+							</thead>
+
+							<tbody>
+							
+								<?php
+								
+								$matchesQuery = "SELECT matches.ID, matches.Season, matches.Week, matches.Court, matches.StartTime, home.Name as homeTeam, home.ID as homeID, home.Data_Theme as homeDataTheme, away.Name as awayTeam, away.ID as awayID, away.Data_Theme as awayDataTheme, ref.Name as refTeam FROM matches JOIN teams as home on matches.Home = home.ID JOIN teams as away on matches.Away = away.ID JOIN teams as ref on matches.Ref = ref.ID WHERE (matches.Season = $thisSeason AND matches.Week = $i) ORDER BY matches.StartTime ASC, matches.Court ASC";
+								$matchesQueryResult = mysql_query($matchesQuery);
+								$num_rows = mysql_num_rows($matchesQueryResult);
+								$x=0;
+								if (!matchesQueryResult) {
+								die ("Could not query the database:". mysql_error());
+								}
+								
+								if (mysql_num_rows($matchesQueryResult) == 0) {
+								  print "<tr><th colspan=7 align=center><b>No matches have been scheduled yet for this week.</th>";
+								}
+								
+								else { 	
+									while ($rowMatch2 = mysql_fetch_array($matchesQueryResult, MYSQL_ASSOC)) 
+										{    ?>  	
+										<?php
+										if ($x % 2 == 0) {
+										print "<tr bgcolor='#dedede'>";
+										}
+										else {
+										print "<tr>";
+										}
+										$x = $x + 1;
+										?>
+										
+										<th><?php 
+										$startTime = intval(substr($rowMatch2[StartTime],0,2))-12 . ":" . substr($rowMatch2[StartTime],3,2) . "PM";
+										print $startTime; ?></th>
+										<td valign=middle style="padding:5px"><a style="text-decoration:none" href="team.php?ID=<?php print $rowMatch2[homeID]; ?>" data-theme="<?php print $rowMatch2[homeDataTheme]; ?>"><?php print $rowMatch2[homeTeam]; ?></a></td>
+										<td valign=middle style="padding:5px"><a style="text-decoration:none" href="team.php?ID=<?php print $rowMatch2[awayID]; ?>" data-theme="<?php print $rowMatch2[awayDataTheme]; ?>"><?php print $rowMatch2[awayTeam]; ?></a></td>
+										<td valign=middle style="padding:5px; border-right:1px solid black; "><!--<a style="text-decoration:none" href="#" data-theme="<?php print $rowMatch2[refDataTheme]; ?>">--><?php print $rowMatch2[refTeam]; ?><!--</a>--></td>
+										
+									<?php
+									$num_rows= $num_rows-1;
+									$rowMatch2 = mysql_fetch_array($matchesQueryResult, MYSQL_ASSOC);
+									if ($num_rows > 0){
+									  ?>
+									  
+									  <?php
+									  
+									  if ($startTime <> intval(substr($rowMatch2[StartTime],0,2))-12 . ":" . substr($rowMatch2[StartTime],3,2) . "PM") {
+										  print "<td valign=middle colspan=3 style='display:none'></td></tr>";
+										  if ($x % 2 == 0) {
+											print "<tr bgcolor='#dedede'>";
+											}
+											else {
+											print "<tr>";
+											}
+											$x = $x + 1;
+											?>
+											
+											<th><?php 
+											$startTime = intval(substr($rowMatch2[StartTime],0,2))-12 . ":" . substr($rowMatch2[StartTime],3,2) . "PM";
+											print $startTime; ?></th>
+
+										  <td valign=middle style="padding: 5px"><a style="text-decoration:none" href="team.php?ID=<?php print $rowMatch2[homeID]; ?>" data-theme="<?php print $rowMatch2[homeDataTheme]; ?>"><?php print $rowMatch2[homeTeam]; ?></a></td>
+											<td valign=middle style="padding:5px"><a style="text-decoration:none" href="team.php?ID=<?php print $rowMatch2[awayID]; ?>" data-theme="<?php print $rowMatch2[awayDataTheme]; ?>"><?php print $rowMatch2[awayTeam]; ?></a></td>
+											<td valign=middle style="padding:5px; border-right:1px solid black;"><!--<a style="text-decoration:none" href="#" data-theme="<?php print $rowMatch2[refDataTheme]; ?>">--><?php print $rowMatch2[refTeam]; ?><!--</a>--></td>
+										  <?php
+										  $num_rows= $num_rows-1;
+										  print "<td valign=middle colspan=3 style='display:none'></td>";
+
+									  }
+									  else {
+									  ?>
+									  <td valign=middle style="padding: 5px"><a style="text-decoration:none" href="team.php?ID=<?php print $rowMatch2[homeID]; ?>" data-theme="<?php print $rowMatch2[homeDataTheme]; ?>"><?php print $rowMatch2[homeTeam]; ?></a></td>
+										<td valign=middle style="padding:5px"><a style="text-decoration:none" href="team.php?ID=<?php print $rowMatch2[awayID]; ?>" data-theme="<?php print $rowMatch2[awayDataTheme]; ?>"><?php print $rowMatch2[awayTeam]; ?></a></td>
+										<td valign=middle style="padding:5px"><!--<a style="text-decoration:none" href="#" data-theme="<?php print $rowMatch2[refDataTheme]; ?>">--><?php print $rowMatch2[refTeam]; ?><!--</a>--></td>
+									  <?php
+									  $num_rows= $num_rows-1;
+									  
+									  }
+									}
+									else{
+									  print "<td valign=middle colspan=3 style='display:none'></td>";
+									}
+									
+									print "</tr>";
+									
+									} ?>
+									
+								<?php } ?>
+							</tbody>
+
+						</table>
+						</center></div>
+						</div>
+						
+						<?php
+						 $i++;
+						 }
+						 //print "<img src='http://uimg2.gpotato.eu/forum/ALLODS_EN_F009/img/1199738_3.jpg'>";
+					 }
+					?>
+	
+	</div><!-- /content -->
+
+
+
+	<div data-role="footer" class="nav-glyphish-example" data-theme="i" data-position="fixed">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<ul>
+				<li><a href="schedule.php" id="sched" data-icon="custom" data-theme="i">Schedule</a></li>
+				<li><a href="teams.php" id="teams" data-icon="custom" data-theme="i">Teams</a></li>
+				<li><a href="standings.php" id="standings" data-icon="custom" data-theme="i">Standings</a></li>
+				<li><a href="contact.html" id="contact" data-icon="custom" data-theme="i">Sign Up</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+
+
+</div><!-- /page -->
+
+</body>
+<script>
+$('#layout-radio-a').change(function() {
+        $("#pos1-fieldcontain").show();
+		$("#pos2-fieldcontain").show();
+
+});
+
+$('#layout-radio-b').change(function() {
+        $("#pos1-fieldcontain").hide();
+		$("#pos2-fieldcontain").hide();
+});
+function MM_jumpMenu(targ,selObj,restore,form){ //v3.0
+	  $(form).attr("action",selObj.options[selObj.selectedIndex].value);
+	  $(form).submit();
+	  
+	  //eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+	  //if (restore) selObj.selectedIndex=0;
+	}
+</script>
+</html>

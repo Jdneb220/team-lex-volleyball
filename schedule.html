@@ -1,0 +1,683 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Team Lex Volleyball - LGBT Volleyball in Lexington, Kentucky</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+		<link rel="stylesheet" href="includes/css/teamlex.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+	
+	<style>
+
+		
+	</style>
+	
+
+</head> 
+<body> 
+
+<div data-role="page" style="overflow-y:hidden">
+
+
+	    <div data-role="panel" id="right-panel" data-display="push" data-position="right" data-theme="j" style="background: #676767;">
+        <ul data-role="listview" data-theme="j" data-icon="false">
+            <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+            <li data-role="list-divider">Schedules</li>
+			<li><a id=allbtn href="#">Show All</a></li>
+            <li><a id=week1btn href="#">Week 1 - September 15</a></li>
+            <li><a id=week2btn href="#">Week 2 - September 22</a></li>
+
+			<li><a id=week3btn href="#">Week 3</a></li>
+            <li><a id=week4btn href="#">Week 4</a></li>
+			<li><a id=week5btn href="#">Week 5</a></li>
+			<li><a id=week6btn href="#">Week 6</a></li>
+			<li><a id=week7btn href="#">Week 7</a></li>
+			<li><a id=week8btn href="#">Week 8</a></li>
+			
+        </ul>
+    </div><!-- /panel -->
+	
+	
+<script>
+
+$('#allbtn').click(function() {
+        $("#week1sched").show();
+		$("#week3sched").show();
+		$("#week4sched").show();
+		$("#week5sched").show();
+		$("#week6sched").show();
+		$("#week7sched").show();
+		$("#week8sched").show();
+		$("#week2sched").show();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week1btn').click(function() {
+        $("#week1sched").show();
+		$("#week3sched").hide();
+		$("#week4sched").hide();
+		$("#week5sched").hide();
+		$("#week6sched").hide();
+		$("#week7sched").hide();
+		$("#week8sched").hide();
+		$("#week2sched").hide();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week3btn').click(function() {
+        $("#week1sched").hide();
+		$("#week3sched").show();
+		$("#week4sched").hide();
+		$("#week5sched").hide();
+		$("#week6sched").hide();
+		$("#week7sched").hide();
+		$("#week2sched").hide();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week4btn').click(function() {
+        $("#week1sched").hide();
+		$("#week3sched").hide();
+		$("#week4sched").show();
+		$("#week5sched").hide();
+		$("#week6sched").hide();
+		$("#week7sched").hide();
+		$("#week8sched").hide();
+		$("#week2sched").hide();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week5btn').click(function() {
+        $("#week1sched").hide();
+		$("#week3sched").hide();
+		$("#week4sched").hide();
+		$("#week5sched").show();
+		$("#week6sched").hide();
+		$("#week7sched").hide();
+		$("#week8sched").hide();
+		$("#week2sched").hide();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week6btn').click(function() {
+        $("#week1sched").hide();
+		$("#week3sched").hide();
+		$("#week4sched").hide();
+		$("#week5sched").hide();
+		$("#week6sched").show();
+		$("#week7sched").hide();
+		$("#week8sched").hide();
+		$("#week2sched").hide();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week7btn').click(function() {
+        $("#week1sched").hide();
+		$("#week3sched").hide();
+		$("#week4sched").hide();
+		$("#week5sched").hide();
+		$("#week6sched").hide();
+		$("#week7sched").show();
+		$("#week8sched").hide();
+		$("#week2sched").hide();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week8btn').click(function() {
+        $("#week1sched").hide();
+		$("#week3sched").hide();
+		$("#week4sched").hide();
+		$("#week5sched").hide();
+		$("#week6sched").hide();
+		$("#week7sched").hide();
+		$("#week8sched").show();
+		$("#week2sched").hide();
+		$( "#right-panel" ).panel( "close" );
+});
+
+$('#week2btn').click(function() {
+        $("#week1sched").hide();
+		$("#week3sched").hide();
+		$("#week4sched").hide();
+		$("#week5sched").hide();
+		$("#week6sched").hide();
+		$("#week7sched").hide();
+		$("#week8sched").hide();
+		$("#week2sched").show();
+		$( "#right-panel" ).panel( "close" );
+});
+</script>
+
+
+	<div data-role="header" data-theme="j">
+		<a href="index.php" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+		<h1></h1>
+		<a href="#right-panel" data-role="button" data-icon="bars" data-iconpos="notext">Weekly Overview</a>
+	</div><!-- /header -->
+
+	
+
+	<div data-role="content" data-theme="i">	
+	
+			
+			
+			<div class="ui-body ui-body-a">
+				<h1>Fall 2013 Schedule</h1>
+				<p>The Fall 2013 Season of Team Lex Volleyball will begin Sunday September 15th.  The length and dates of weekly play will depend on the number of registrants.  We will post the season schedule and team rosters before our first week of regular play on Sunday September 22nd.</p>
+				<p>Matches will be two sets to 21 with a cap at 23 unless otherwise noted, using
+<a href="http://www.volleyballreftraining.com/includes/2011_13DCRindoor.pdf" target="_blank">USAV domestic indoor rules</a></p>
+
+				
+			</div>
+			
+	<DIV NAME=week1 ID=week1sched style="">		
+			<div data-role="header" data-theme="a">
+				<h1>Week 1: September 15</h1>
+			</div>
+			<p><i>Skill Assessments</i> are a collection of passing, setting, hitting, and serving drills to evaluate player abilities for team placement.  Participation is encouraged.  League organizers will lead the drills and evaluate players in order to help form evenly matched teams.</p>
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th style="width:110px"></th>
+            <th>Court 1</th>
+        </tr>
+		</thead>
+		<tbody>
+		<tr>
+			<th>6:30pm</th>
+			<td>Introductions</td>
+        </tr>
+		<tr>
+			<th>6:45pm</th>
+			<td>Skills Assessment Group 1</td>
+        </tr>
+		<tr>
+			<th>7:30pm</th>
+			<td>Skills Assessment Group 2</td>
+        </tr>
+		<tr>
+			<th>8:15pm</th>
+			<td>Skills Clinic: Basics of the Game (Rules, Points, Rotation)</td>
+        </tr>
+		<tr>
+			<th>9:20pm</th>
+			<td>Finishing Remarks</td>
+        </tr>
+		</tbody>
+		</table>
+		
+		
+</table>
+
+</div>
+
+<DIV NAME=week2 ID=week2sched  style="">
+
+			<div data-role="header" data-theme="b">
+				<h1>Week 2: September 22</h1>
+			</div>
+			<p><i>Check back later for a complete schedule for the remainder of the season.</i><br><br><b>Games tonight will be 1 set to 25 (cap at 27).</b></p>
+			
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th>Court 1</th>
+        </tr>
+		</thead>
+		<tbody>
+					<tr>
+			<th>6:30pm</th>
+			<td>Warm-ups and Skills Clinic: Passing and Serving</td>
+        </tr>
+		</tbody>
+		</table>
+		
+		
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th colspan="3">Court 1</th>
+        </tr>
+        <tr>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+        </tr>
+    </thead>
+
+    <tbody>
+            <th>7:00pm</th>
+			<td>Team A</td>
+			<td>Team B</td>
+			<td>Team C</td>
+        </tr>
+        <tr>
+            <th>7:30pm</th>
+			<td>Team C</td>
+			<td>Team D</td>
+			<td>Team E</td>
+        </tr>
+		<tr>
+            <th>8:00pm</th>
+			<td>Team E</td>
+			<td>Team A</td>
+			<td>Team B</td>
+        </tr>
+		<tr>
+            <th>8:30pm</th>
+			<td>Team B</td>
+			<td>Team C</td>
+			<td>Team D</td>
+        </tr>
+		<tr>
+            <th>9:00pm</th>
+			<td>Team D</td>
+			<td>Team E</td>
+			<td>Team A</td>
+        </tr>
+    </tbody>
+
+</table>
+
+</div>
+
+
+<DIV NAME=week3 ID=week3sched  style="">
+
+<div data-role="header" data-theme="k">
+				<h1>Week 3</h1>
+			</div>
+			
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th>Court 1</th>
+        </tr>
+		</thead>
+		<tbody>
+					<tr>
+			<th>6:30pm</th>
+			<td>Warm-ups and Skills Clinic: Setting and Hitting</td>
+        </tr>
+		</tbody>
+		</table>
+		
+		
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th colspan="3">Court 1</th>
+        </tr>
+        <tr>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+        </tr>
+    </thead>
+    <tbody>
+             <th>7:15pm</th>
+            <td>Team A</td>
+			<td>Team D</td>
+			<td>Team E</td>
+        </tr>
+        <tr>
+            <th>8:00pm</th>
+            <td>Team B</td>
+			<td>Team E</td>
+			<td>Team A</td>
+        </tr>
+		<tr>
+            <th>8:45pm</th>
+            <td>Team E</td>
+			<td>Team C</td>
+			<td>Team B</td>
+        </tr>
+    </tbody>
+</table>
+
+
+			</div>
+			
+
+			<DIV NAME=week4 ID=week4sched  style="">
+
+<div data-role="header" data-theme="k">
+				<h1>Week 4</h1>
+			</div>
+			
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th>Court 1</th>
+        </tr>
+		</thead>
+		<tbody>
+					<tr>
+			<th>6:30pm</th>
+			<td>Warm-ups and Skills Clinic: Passing, Setting and Hitting</td>
+        </tr>
+		</tbody>
+		</table>
+		
+		
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th colspan="3">Court 1</th>
+        </tr>
+        <tr>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+        </tr>
+    </thead>
+    <tbody>
+             <th>7:15pm</th>
+            <td>Team A</td>
+			<td>Team C</td>
+			<td>Team D</td>
+        </tr>
+        <tr>
+            <th>8:00pm</th>
+            <td>Team E</td>
+			<td>Team D</td>
+			<td>Team B</td>
+        </tr>
+		<tr>
+            <th>8:45pm</th>
+            <td>Team B</td>
+			<td>Team D</td>
+			<td>Team E</td>
+        </tr>
+    </tbody>
+</table>
+
+
+			</div>
+			
+	<DIV NAME=week5 ID=week5sched  style="">
+
+<div data-role="header" data-theme="k">
+				<h1>Week 5</h1>
+			</div>
+			
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th>Court 1</th>
+        </tr>
+		</thead>
+		<tbody>
+					<tr>
+			<th>6:30pm</th>
+			<td>Warm-ups and Skills Clinic: Blocking, Court Cover, Defensive Systems</td>
+        </tr>
+		</tbody>
+		</table>
+		
+		
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th colspan="3">Court 1</th>
+        </tr>
+        <tr>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+        </tr>
+    </thead>
+    <tbody>
+             <th>7:15pm</th>
+            <td>Team E</td>
+			<td>Team C</td>
+			<td>Team D</td>
+        </tr>
+        <tr>
+            <th>8:00pm</th>
+            <td>Team B</td>
+			<td>Team D</td>
+			<td>Team C</td>
+        </tr>
+		<tr>
+            <th>8:45pm</th>
+            <td>Team A</td>
+			<td>Team C</td>
+			<td>Team B</td>
+        </tr>
+    </tbody>
+</table>
+			
+			
+			</div>
+			
+			<DIV NAME=week6 ID=week6sched  style="">
+
+<div data-role="header" data-theme="k">
+				<h1>Week 6</h1>
+			</div>
+			
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th>Court 1</th>
+        </tr>
+		</thead>
+		<tbody>
+					<tr>
+			<th>6:30pm</th>
+			<td>Warm-ups and Skills Clinic: Offensive Systems, Transitions</td>
+        </tr>
+		</tbody>
+		</table>
+		
+		
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th colspan="3">Court 1</th>
+        </tr>
+        <tr>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+        </tr>
+    </thead>
+    <tbody>
+             <th>7:15pm</th>
+            <td>Team A</td>
+			<td>Team B</td>
+			<td>Team E</td>
+        </tr>
+        <tr>
+            <th>8:00pm</th>
+            <td>Team B</td>
+			<td>Team E</td>
+			<td>Team A</td>
+        </tr>
+		<tr>
+            <th>8:45pm</th>
+            <td>Team C</td>
+			<td>Team D</td>
+			<td>Team B</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<DIV NAME=week7 ID=week7sched  style="">
+
+<div data-role="header" data-theme="k">
+				<h1>Week 7</h1>
+			</div>
+			
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th>Court 1</th>
+        </tr>
+		</thead>
+		<tbody>
+					<tr>
+			<th>6:30pm</th>
+			<td>Warm-ups and Skills Clinic: Serving, Setting</td>
+        </tr>
+		</tbody>
+		</table>
+		
+		
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th colspan="3">Court 1</th>
+        </tr>
+        <tr>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+        </tr>
+    </thead>
+    <tbody>
+             <th>7:15pm</th>
+            <td>Team A</td>
+			<td>Team E</td>
+			<td>Team D</td>
+        </tr>
+        <tr>
+            <th>8:00pm</th>
+            <td>Team B</td>
+			<td>Team C</td>
+			<td>Team A</td>
+        </tr>
+		<tr>
+            <th>8:45pm</th>
+            <td>Team D</td>
+			<td>Team A</td>
+			<td>Team C</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+			
+		<DIV NAME=week8 ID=week8sched  style="">
+<div data-role="header" data-theme="k">
+				<h1>Week 8:</h1>
+			</div>
+			<p>Double Elimination tournament.  Winner bracket matches are best of 3, first two sets to 21 cap at 23.  If third set needed, 15 with no cap.  Loser bracket matches are 1 set to 21, no cap.</p>
+		
+		
+			<table data-role="table" id="financial-table-reflow" data-mode="reflow" class="financial-table-reflow table-stroke">
+    <thead>
+        <tr class="th-groups">
+            <th></th>
+            <th colspan="3">Court 1</th>
+			<th style="width:70px"></th>
+            <th colspan="3">Court 2</th>
+        </tr>
+        <tr>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+			<th></th>
+            <th>Home</th>
+            <th>Away</th>
+			<th>Ref</th>
+        </tr>
+    </thead>
+    <tbody>
+            <th>Match 1 - 6:30pm</th>
+            <td>Rank #4</td><td>Rank #5</td><td>Rank #1</td>
+			<th>Match 2</th>
+			<td>Rank #2</td><td>Rank #3</td><td>Rank #1</td>
+        </tr>
+        <tr>
+            <th>Match 3</th>
+            <td>Winner Match 1</td><td>Rank #1</td><td>Winner Match 2</td>
+			<th>Match 4</th>
+			<td>Loser Match 2</td><td>Loser Match 1</td><td>Winner Match 2</td>
+        </tr>
+		<tr>
+            <th>Match 5</th>
+            <td>Winner Match 2</td><td>Winner Match 3</td><td>Loser Match 4</td>
+			<th>Match 6</th>
+			<td>Winner Match 4</td><td>Loser Match 3</td><td>Loser Match 4</td>
+        </tr>
+		<tr>
+            <th>Match 7</th>
+            <td>Winner Match 6</td><td>Loser Match 5</td><td>Loser Match 6</td>
+			<th></th>
+			<td colspan=3>Open Play</td>
+        </tr>
+		<tr>
+            <th>Match 8</th>
+            <td>Winner Match 5</td><td>Winner Match 7</td><td>Loser Match 7</td>
+			<th></th>
+			<td colspan=3>Open Play</td>
+        </tr>
+    </tbody>
+</table>
+	
+			</div>
+		
+	</div><!-- /content -->
+
+
+
+	<div data-role="footer" class="nav-glyphish-example" data-theme="i" data-position="fixed">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<ul>
+				<li><a href="schedule.php" id="sched" data-icon="custom" data-theme="i">Schedule</a></li>
+				<li><a href="teams.php" id="teams" data-icon="custom" data-theme="i">Teams</a></li>
+				<li><a href="standings.php" id="standings" data-icon="custom" data-theme="i">Standings</a></li>
+				<li><a href="contact.html" id="contact" data-icon="custom" data-theme="i">Sign Up</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+
+
+</div><!-- /page -->
+
+</body>
+<script>
+$('#layout-radio-a').change(function() {
+        $("#pos1-fieldcontain").show();
+		$("#pos2-fieldcontain").show();
+
+});
+
+$('#layout-radio-b').change(function() {
+        $("#pos1-fieldcontain").hide();
+		$("#pos2-fieldcontain").hide();
+});
+function MM_jumpMenu(targ,selObj,restore,form){ //v3.0
+	  $(form).attr("action",selObj.options[selObj.selectedIndex].value);
+	  $(form).submit();
+	  
+	  //eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+	  //if (restore) selObj.selectedIndex=0;
+	}
+</script>
+</html>
